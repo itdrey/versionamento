@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Versionamento no GitHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <div class="badge">git & github</div>
+      <h1 class="hero-title">
+        Versionamento<br/>
+        <span class="accent">de Código</span>
+      </h1>
+      <p class="hero-sub">Entenda como o Git e o GitHub controlam o histórico do seu projeto — do primeiro commit ao trabalho em equipe.</p>
+      <a href="#conceitos" class="btn-hero">Explorar conceitos ↓</a>
+    </div>
+    <div class="hero-terminal" aria-hidden="true">
+      <div class="terminal-bar">
+        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        <span class="terminal-title">terminal</span>
+      </div>
+      <div class="terminal-body" id="terminal-body"></div>
+    </div>
+  </header>
+
+  <!-- O QUE É VERSIONAMENTO -->
+  <section class="section" id="conceitos">
+    <div class="container">
+      <div class="section-label">conceito base</div>
+      <h2>O que é versionamento?</h2>
+      <p class="section-desc">Versionamento é um sistema que registra todas as alterações feitas em arquivos ao longo do tempo, permitindo que você recupere versões específicas quando necessário. O <strong>Git</strong> é a ferramenta local, e o <strong>GitHub</strong> é a plataforma online que hospeda esses repositórios.</p>
+
+      <div class="cards-grid">
+        <div class="card" data-delay="0">
+          <div class="card-icon">📸</div>
+          <h3>Histórico completo</h3>
+          <p>Cada alteração é registrada como um snapshot do projeto, com autor, data e mensagem descritiva.</p>
+        </div>
+        <div class="card" data-delay="100">
+          <div class="card-icon">🔁</div>
+          <h3>Reversão segura</h3>
+          <p>Se algo der errado, você pode voltar a qualquer versão anterior com um único comando.</p>
+        </div>
+        <div class="card" data-delay="200">
+          <div class="card-icon">🤝</div>
+          <h3>Colaboração</h3>
+          <p>Múltiplas pessoas podem trabalhar no mesmo projeto simultaneamente sem conflitos caóticos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINHA DO TEMPO DE COMMITS -->
+  <section class="section section-dark" id="commits">
+    <div class="container">
+      <div class="section-label">fluxo de trabalho</div>
+      <h2>Linha do tempo de commits</h2>
+      <p class="section-desc">Um <strong>commit</strong> é como uma fotografia do seu projeto num momento específico. Veja como um projeto evolui:</p>
+
+      <div class="timeline" id="timeline">
+        <div class="timeline-line"></div>
+        <div class="timeline-item" data-index="0">
+          <div class="t-dot"></div>
+          <div class="t-card">
+            <span class="t-hash">a1b2c3d</span>
+            <h4>Commit inicial</h4>
+            <p>Criação do repositório com os arquivos base do projeto.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-index="1">
+          <div class="t-dot"></div>
+          <div class="t-card">
+            <span class="t-hash">f4e5d6c</span>
+            <h4>feat: adiciona página de login</h4>
+            <p>Novo formulário de autenticação com validação de campos.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-index="2">
+          <div class="t-dot"></div>
+          <div class="t-card">
+            <span class="t-hash">7g8h9i0</span>
+            <h4>fix: corrige bug no menu</h4>
+            <p>Menu mobile não abria em dispositivos iOS — problema resolvido.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-index="3">
+          <div class="t-dot"></div>
+          <div class="t-card">
+            <span class="t-hash">j1k2l3m</span>
+            <h4>feat: dark mode implementado</h4>
+            <p>Suporte completo ao tema escuro com persistência via localStorage.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-index="4">
+          <div class="t-dot active"></div>
+          <div class="t-card t-card-active">
+            <span class="t-hash">HEAD → main</span>
+            <h4>chore: deploy v1.0.0 🚀</h4>
+            <p>Primeira versão estável publicada em produção.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANCHES -->
+  <section class="section" id="branches">
+    <div class="container">
+      <div class="section-label">ramificações</div>
+      <h2>Branches</h2>
+      <p class="section-desc">Uma <strong>branch</strong> é uma ramificação independente do código. Você pode criar uma branch para desenvolver uma nova feature sem afetar o código principal.</p>
+
+      <div class="branch-visual">
+        <div class="branch-svg-wrap">
+          <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" class="branch-svg">
+            <!-- main line -->
+            <line x1="40" y1="100" x2="560" y2="100" stroke="var(--accent)" stroke-width="3" stroke-dasharray="8 4"/>
+            <!-- feature branch -->
+            <path d="M 200 100 Q 230 100 250 60 L 400 60 Q 420 60 440 100" stroke="var(--green)" stroke-width="2.5" fill="none" stroke-dasharray="6 3"/>
+            <!-- hotfix branch -->
+            <path d="M 300 100 Q 310 100 320 140 L 370 140 Q 380 140 390 100" stroke="var(--purple)" stroke-width="2" fill="none" stroke-dasharray="5 3"/>
+            <!-- dots main -->
+            <circle cx="40" cy="100" r="8" fill="var(--accent)"/>
+            <circle cx="200" cy="100" r="8" fill="var(--accent)"/>
+            <circle cx="440" cy="100" r="8" fill="var(--accent)"/>
+            <circle cx="560" cy="100" r="10" fill="var(--accent)" stroke="white" stroke-width="2"/>
+            <!-- dots feature -->
+            <circle cx="250" cy="60" r="7" fill="var(--green)"/>
+            <circle cx="325" cy="60" r="7" fill="var(--green)"/>
+            <circle cx="400" cy="60" r="7" fill="var(--green)"/>
+            <!-- dots hotfix -->
+            <circle cx="320" cy="140" r="6" fill="var(--purple)"/>
+            <circle cx="370" cy="140" r="6" fill="var(--purple)"/>
+            <!-- labels -->
+            <text x="40" y="125" fill="var(--text-muted)" font-size="11" font-family="Space Mono" text-anchor="middle">main</text>
+            <text x="325" y="45" fill="var(--green)" font-size="11" font-family="Space Mono" text-anchor="middle">feature/login</text>
+            <text x="345" y="165" fill="var(--purple)" font-size="11" font-family="Space Mono" text-anchor="middle">hotfix/bug</text>
+            <text x="560" y="85" fill="var(--accent)" font-size="11" font-family="Space Mono" text-anchor="middle">HEAD</text>
+          </svg>
+        </div>
+
+        <div class="branch-legend">
+          <div class="legend-item"><span class="legend-dot" style="background:var(--accent)"></span> <strong>main</strong> — branch principal, código em produção</div>
+          <div class="legend-item"><span class="legend-dot" style="background:var(--green)"></span> <strong>feature/login</strong> — nova funcionalidade isolada</div>
+          <div class="legend-item"><span class="legend-dot" style="background:var(--purple)"></span> <strong>hotfix/bug</strong> — correção urgente de bug</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMANDOS ESSENCIAIS -->
+  <section class="section section-dark" id="comandos">
+    <div class="container">
+      <div class="section-label">referência rápida</div>
+      <h2>Comandos essenciais</h2>
+      <p class="section-desc">Os comandos que você vai usar todo dia trabalhando com Git e GitHub:</p>
+
+      <div class="commands-grid" id="commands-grid">
+        <!-- preenchido por JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FLUXO PULL REQUEST -->
+  <section class="section" id="pr">
+    <div class="container">
+      <div class="section-label">colaboração</div>
+      <h2>Pull Request</h2>
+      <p class="section-desc">Um <strong>Pull Request (PR)</strong> é uma proposta de integração de código. Você pede que suas alterações sejam revisadas e incorporadas à branch principal.</p>
+
+      <div class="pr-steps">
+        <div class="pr-step">
+          <div class="pr-num">01</div>
+          <div class="pr-info">
+            <h4>Fork ou Branch</h4>
+            <p>Crie uma cópia do repositório (fork) ou uma nova branch para suas alterações.</p>
+          </div>
+        </div>
+        <div class="pr-arrow">→</div>
+        <div class="pr-step">
+          <div class="pr-num">02</div>
+          <div class="pr-info">
+            <h4>Commits</h4>
+            <p>Faça suas alterações e registre cada mudança significativa com commits bem descritos.</p>
+          </div>
+        </div>
+        <div class="pr-arrow">→</div>
+        <div class="pr-step">
+          <div class="pr-num">03</div>
+          <div class="pr-info">
+            <h4>Abrir PR</h4>
+            <p>No GitHub, abra um Pull Request descrevendo o que foi feito e por quê.</p>
+          </div>
+        </div>
+        <div class="pr-arrow">→</div>
+        <div class="pr-step">
+          <div class="pr-num">04</div>
+          <div class="pr-info">
+            <h4>Code Review</h4>
+            <p>Colegas revisam, comentam e sugerem melhorias antes de aprovar.</p>
+          </div>
+        </div>
+        <div class="pr-arrow">→</div>
+        <div class="pr-step pr-step-final">
+          <div class="pr-num">05</div>
+          <div class="pr-info">
+            <h4>Merge ✓</h4>
+            <p>O código aprovado é mesclado à branch principal.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>Feito com <span class="heart">♥</span> para quem está aprendendo Git · <span class="mono">git commit -m "keep learning"</span></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
